@@ -1,14 +1,12 @@
 services:
   - type: web
     name: nmap-scan-backend
-    plan: free
     env: docker
+    plan: free
     dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
-    domains:
-      - backend.yourdomain.com # Replace with your actual domain
 
   - type: web
     name: nmap-scan-frontend
@@ -19,5 +17,3 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-    domains:
-      - frontend.yourdomain.com # Replace with your actual domain
