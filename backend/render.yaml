@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: nmap-scan-backend
+    env: node
+    plan: free
+    buildCommand: ./install-nmap.sh && npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    domains:
+      - backend.yourdomain.com # Replace with your actual domain
+
+  - type: web
+    name: nmap-scan-frontend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    domains:
+      - frontend.yourdomain.com # Replace with your actual domain
