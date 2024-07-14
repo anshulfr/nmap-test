@@ -1,10 +1,9 @@
 services:
   - type: web
     name: nmap-scan-backend
-    env: node
     plan: free
-    buildCommand: ./install-nmap.sh && npm install
-    startCommand: node server.js
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: NODE_ENV
         value: production
@@ -16,7 +15,7 @@ services:
     env: node
     plan: free
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    startCommand: npx serve -s build
     envVars:
       - key: NODE_ENV
         value: production
