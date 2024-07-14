@@ -4,6 +4,7 @@ services:
     env: docker
     plan: free
     dockerfilePath: ./backend/Dockerfile
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
